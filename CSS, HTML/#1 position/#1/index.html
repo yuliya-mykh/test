@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <style>
+        .block1{
+            background: rgb(230, 250, 53);            
+        }
+        .block2{
+            background: rgb(185, 38, 38);
+        }
+        .block3{
+            background: rgb(58, 34, 190);
+        }
+
+        .block4{
+            background: rgb(24, 207, 79);
+        }
+        .block5{
+            background: rgb(231, 56, 158);
+        }
+        .block{
+            margin-bottom: 20px;
+        }
+        .block>div{
+            height: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            width: 20%;
+        }
+        
+        /* Опишите все известные вам способы позиционирования 5 элементов по центру, каждый из которых должен занимать 20%.
+        1.Центрировать с помошью margin 
+        */
+        .first>div{
+            margin: 0 auto;
+        }
+        
+       /* 2. grid Создать сетку из трех колонок и поместить элементы во вторую колонку с указанием сттроки*/
+        .second{display: grid;
+        grid-template-columns: 40% 20% 40%;}
+        .second>div{width: 100%; grid-column: 2; }
+        .second>.block1{grid-row: 1;}
+        .second>.block2{grid-row: 2;}
+        .second>.block3{grid-row: 3;}
+        .second>.block4{grid-row: 4;}
+        .second>.block5{grid-row: 5;}
+
+        /*3. . Абсолютное пзиционирование*/
+        
+        .third{position: relative; }
+        .third>div{position: absolute; top:0; 
+        left: 40%;}
+        .third>.block2{ top: 30px;}   
+        .third>.block3{ top: 60px;}   
+        .third>.block4{ top: 90px;}   
+        .third>.block5{ top: 120px;}   
+
+    </style>
+        <div class="first block">
+            <div class="block1">1</div>
+            <div class="block2">2</div>
+            <div class="block3">3</div>
+            <div class="block4">4</div>
+            <div class="block5">5</div>
+        </div>
+        <div class="second block">
+            <div class="block1">1</div>
+            <div class="block2">2</div>
+            <div class="block3">3</div>
+            <div class="block4">4</div>
+            <div class="block5">5</div>
+        </div>
+        <div class="third block">
+            <div class="block1">1</div>
+            <div class="block2">2</div>
+            <div class="block3">3</div>
+            <div class="block4">4</div>
+            <div class="block5">5</div>
+        </div>
+       
+    <script src="script.js"></script>
+</body>
+</html>

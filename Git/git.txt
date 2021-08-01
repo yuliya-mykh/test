@@ -1,0 +1,13 @@
+1. на ПК зайти в папку в которую хотим клонировать репозиторий и правой кнопкой миши "Git Bash Here"
+2. находясь в нужной папке выполнить комманду
+   $ git clone https://git@example.com:example/test.git
+3. cd test переходим в папку test
+4.  проверяем какие есть ветки, смотрим в какой находимся
+   $ git branch 
+5. перехим на ветку dev
+   $ git checkout dev
+6. создаем нужный файл с текстом
+  $ echo "### May be in future" >> Readme.md
+7. $git add Readme.md
+8. $git commit -m "add Readme.md"
+9. $git push

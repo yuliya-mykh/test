@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pop-up Contact Form</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700,900" rel="stylesheet">
+  
+  <style>
+    .container{
+      background-color: #e6a700;
+      height: 100vh;
+      padding: 50px;
+    }
+ 
+    /* Основные стили для всплывающего окна */
+    .loginWindow{
+     
+      background-color: #161613;
+      color: #fff;
+      width: 100%;
+      max-width: 500px;
+      
+      padding: 40px 30px;
+      margin: 100px auto;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(18, 17, 12, 0.5);
+    }
+   
+   button{
+      margin: 20px auto;
+      padding: 10px 50px;
+      font-size: 13px;
+      text-align: center;
+      box-shadow: none;
+      display: inline-block;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+   }
+    
+    .active{
+      color: #161613;
+      background-color: #ffba00;
+      
+      border: 1px solid #ffba00;
+      
+    }
+    .active:hover, .active:focus {
+      background-color: #ffba00;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 5px 0 10px #ffba00;
+    }
+    .danger {
+      color: #ff0000;
+      background-color: #ffffff;
+    
+      border: 3px solid #ff0000;
+      font-weight: bold;
+      
+      position: relative;
+
+    }
+    .danger::after{
+      content: 'DANGER!';
+      font-size: 16px;
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      left: 30px;
+      visibility: hidden;
+      letter-spacing: 3px;
+    }
+    .danger:hover, .danger:focus {
+      background-color: #ff0000;
+
+    }
+   .danger:hover::after, .danger:focus::after{
+    visibility: visible;
+      
+    }
+    .disabled{
+      
+      color: #000000;
+      background-color: rgba(255,255,255, 0.5);
+      
+      border: 1px solid #949292;
+      font-weight: bold;
+     
+      cursor: no-drop;
+      
+    }
+    
+   
+
+  </style>
+</head>
+<body>
+ 
+  <div class="container">
+    
+          <div class="loginWindow login_window">
+              
+            <form class="login-form" autocomplete="off">
+              <div class="aligncenter">
+                <button type="submit" class="active">button</button>
+              </div>
+              <div class="aligncenter">
+                <button type="submit" class="danger">button</button>
+              </div>
+            
+              <div class="aligncenter">
+                <button type="submit" class="disabled">button</button>
+              </div>
+              
+            </form>
+            
+          
+ 
+      </div>
+    </div>
+  </div>
+ 
+  
+</body>
+</html>

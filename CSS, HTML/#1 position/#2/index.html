@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <style>
+        .block1{
+            background: rgb(230, 250, 53);            
+        }
+        .block2{
+            background: rgb(185, 38, 38);
+        }
+        .block3{
+            background: rgb(58, 34, 190);
+        }
+
+        .block4{
+            background: rgb(24, 207, 79);
+        }
+        .block5{
+            background: rgb(231, 56, 158);
+        }
+        .block>div{
+            height: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        /* Опишите все известные вам способы позиционирования 5 элементов по центру, каждый из которых должен занимать 20%.
+        1.grig 
+        */
+        .first{display: grid;
+         grid-template-columns: repeat(5,20%);
+        }
+        
+        /*2. flex*/
+        .second{ display: flex;
+        justify-content: center;}
+        .second>div{width: 20%;}
+        /*3. обтекание floal:left*/
+        .third>div{width: 20%;
+        float: left;}
+        /*4. Абсолютное пзиционирование
+        */
+        .four{position: relative; }
+        .four>div{width: 20%; position: absolute; top:0; }
+        .four>.block2{ left: 20%;}   
+        .four>.block3{ left: 40%;}   
+        .four>.block4{ left: 60%;}   
+        .four>.block5{ left: 80%;}   
+
+    </style>
+        <div class="first block">
+            <div class="block1">1</div>
+            <div class="block2">2</div>
+            <div class="block3">3</div>
+            <div class="block4">4</div>
+            <div class="block5">5</div>
+        </div>
+        <div class="second block">
+            <div class="block1">1</div>
+            <div class="block2">2</div>
+            <div class="block3">3</div>
+            <div class="block4">4</div>
+            <div class="block5">5</div>
+        </div>
+        <div class="third block">
+            <div class="block1">1</div>
+            <div class="block2">2</div>
+            <div class="block3">3</div>
+            <div class="block4">4</div>
+            <div class="block5">5</div>
+        </div>
+        <br><br><br>
+        <div class="four block">
+            <div class="block1">1</div>
+            <div class="block2">2</div>
+            <div class="block3">3</div>
+            <div class="block4">4</div>
+            <div class="block5">5</div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>
