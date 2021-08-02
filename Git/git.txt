@@ -10,4 +10,5 @@
   $ echo "### May be in future" >> Readme.md
 7. $git add Readme.md
 8. $git commit -m "add Readme.md"
-9. $git push
+9. git remote add origin https://git@example.com:example/test.git
+10. $git push -u origin dev
