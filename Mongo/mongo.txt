@@ -1,0 +1,39 @@
+Mongo
+Рабочее окружение
+База данных MongoDB содержит коллекции:
+
+posts - Записи - 
+{
+  "properties": {
+    "_id": { "bsonType": "objectId" },
+    "title": { "bsonType": "string" },
+    "content": { "bsonType": "string" },
+    "author": { "bsonType": "string" },
+    "like": { "bsonType": "int" },
+    "dislike": { "bsonType": "int" }
+  }
+}
+
+Все команды вы выполняете в mongo shell
+
+Задание
+Напишите команды для получения следующих значений:  
+
+#Выведите 5 записей из коллекции posts пропустив первые 5
+
+db.posts.find().skip(5)limit(5)  
+#или
+db.posts.find().slice(5,5)  
+
+#Выведите все записи у которых like больше 100
+
+db.posts.find({proporties: {"like":{$gt:100}}})
+
+#Добавьте новую запись в коллекцию posts
+
+db.posts.insertOne({proporties:{"_id":12345, "title":"New post", "content":"Hello!", "autor":"Yul Mikh", "like":0, "deslike":0}})
+
+#Выведите список авторов и их общее количество like
+
+db.posts.group{key:{autor:true}, initial:{likessum:0},
+reduce: function(curr,res) {res.likessum += {like:true}
