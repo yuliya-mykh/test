@@ -53,11 +53,11 @@ let testData3 = [{  "name":"Vasya",
                 }]
 let testData4 = [{"name":"Vasya","email":"vasya@example.com","age":20},{"name":"Dima","email":"dima@example.com","age":34},{"name":"Colya","email":"colya@example.com","age":46},{"name":"Misha","email":"misha@example.com","age":16},{"name":"Ashan","email":"ashan@example.com","age":99},{"name":"Rafshan","email":"rafshan@example.com","age":11},1,2,1990,85,24,"Vasya","colya@example.com","Rafshan","ashan@example.com",true,false,[[[[1,2,1990,85,24,"Vasya","colya@example.com","Rafshan","ashan@example.com",true,false,[{"name":"Rafshan","email":"rafshan@example.com","age":11}]]]]]]
 //1.Напишите функцию cloneDeep таким образом, чтобы она была способна клонировать переданный как параметр объект.  
-
-let cloneDeep = JSON.parse(JSON.stringify(testData3));
- 
-  console.log(testData3); // 
-  console.log(cloneDeep); //
+function cloneDeep(a){
+ return JSON.parse(JSON.stringify(a));
+}
+   
+  console.log(cloneDeep(testData3)); //
 
 //2. Свертка. Используйте метод reduce в комбинации с concat для свёртки массива массивов в один массив, у которого есть все элементы входных массивов.
 
@@ -73,6 +73,7 @@ console.log( arrays );
 function MultiplicatorUnitFailure() {}
 function primitiveMultiply(a, b) {
   if (Math.random() < 0.5)
+    
     return a * b;
   else
     throw new MultiplicatorUnitFailure();
@@ -81,7 +82,7 @@ function reliableMultiply(a, b) {
 
     
         var x;
-        while (!x){
+        while (!x && x!=0){
         try {x = primitiveMultiply(a, b);}
             catch(error){  
               if (error instanceof MultiplicatorUnitFailure) 
@@ -89,22 +90,23 @@ function reliableMultiply(a, b) {
               
             }
         }
+       
          return x;
    
 }
 
-console.log(reliableMultiply(8, 8));
+console.log(reliableMultiply(8, 0));
 
 //4. Расширить прототип Array, добавив к нему метод добавления элемента в начало без использование unshift.
 
 var arr = [1, 2, 3];
 
-var LetsUnshift = function (item){
-  arr.reverse().push(item);
-  arr.reverse();
-
+Array.prototype.append=function(element){
+  this.reverse().push(element);
+  this.reverse();
 }
-LetsUnshift(0);
+arr.append(0);
+
 console.log(arr);
 //[0, 1, 2, 3]
 
@@ -122,20 +124,28 @@ function recuseLog(arr, i) {
 recuseLog(arr,0);
 
 
+
 //7. Сделать функцию поиска значений в массиве.
 
 /*Синтаксис: array_find(arr: array, search: string|regex): string|number[]|null
 */
 
-
+var words = [];
 
  function array_find ( arr, val ) {	
-   for(var i in arr) {if (val == arr[i]) return arr[i]; }
+   for(var i in arr) 
+   {if ((val == arr[i]) || val.match(arr[i]) )return arr[i]; }
+  
    return false; 
+
+   
  }
 
  let result = array_find (testData, "Rafshan");
+ let result1 = array_find(testData, '/^raf.*/i')
  console.log (result);
+ console.log (result1);
+
 
 
  //8. Сделать функцию которая обрезает массив до указанного значения.
@@ -166,12 +176,5 @@ function array_unique(arr) {
 }
 let result10 = array_unique(testData.concat(testData2));
 console.log (result10);
-
-
-
-
-
-
-
 
 
